@@ -18,3 +18,4 @@ services:
   database:
     image: mongo:4.4.14
     restart: unless-stopped
+    command: mongod --bind_ip 0.0.0.0
