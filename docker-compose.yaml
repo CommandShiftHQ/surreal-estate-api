@@ -12,8 +12,9 @@ services:
       - database
     environment:
       - PORT=3000
-      - DATABASE_CONN=mongodb://database:27017/surreal-estate
+      - DATABASE_CONN=mongodb://database:27017/surreal-estate?authSource=admin
       
 
   database:
     image: mongo:4.4.14
+    restart: unless-stopped
