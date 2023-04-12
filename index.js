@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(methodOverride());
 
 
-mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true, useUnifiedTopology: true });
 
 restify.serve(router, PropertyListingModel);
 restify.serve(router, FavouriteModel);
