@@ -6,7 +6,7 @@ const restify = require('express-restify-mongoose');
 const app = express();
 const path = require('path');
 const router = express.Router();
-const expressListRoutes   = require('express-list-routes');
+const expressListRoutes = require('express-list-routes');
 const cors = require('cors');
 const PropertyListingModel = require('./models/property');
 const FavouriteModel = require('./models/favourite');
@@ -22,8 +22,9 @@ app.options('*', cors());
 app.use(express.json());
 app.use(methodOverride());
 
-
-mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(`MongoDB Connection Error: ${err}`));
 
 restify.serve(router, PropertyListingModel);
 restify.serve(router, FavouriteModel);
@@ -32,7 +33,7 @@ app.use(router);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', router);
 
-expressListRoutes({}, 'Endpoints:', router );
+expressListRoutes({}, 'Endpoints:', router);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
