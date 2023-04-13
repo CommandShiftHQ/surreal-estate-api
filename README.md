@@ -49,9 +49,10 @@ https://github.com/tsv-stacks/surreal-estate-api/tree/master
    - Set the key as `DATABASE_CONN`
    - Set the value as your MongoDB connection string
 6. Scroll down and select `Create Web Service`
-7. If you see:
+
 ![image](https://user-images.githubusercontent.com/113384739/231850830-12a78545-66c8-44ac-ac39-11846323c0d2.png)
-Then congrats you've successfully deployed to Render and can begin making HTTP Requests!
+
+If you see the above in your Render logs then congrats you've successfully deployed to Render and can begin making HTTP Requests!
 
 ## Run in container
 
